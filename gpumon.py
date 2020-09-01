@@ -1,5 +1,3 @@
-
-
 import urllib2
 import boto3
 from pynvml import *
