@@ -1,10 +1,10 @@
 [Unit]
-Description=Dummy Service
+Description=GPU monitoring service Service
 After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=python2 /var/gpumon.py
+ExecStart=/usr/bin/python2 /var/gpumon.py
 StandardInput=tty-force
 
 [Install]
