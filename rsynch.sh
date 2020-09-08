@@ -16,7 +16,7 @@ else
 	inst_type=`wget -q -O - http://169.254.169.254/latest/meta-data/instance-type`
 	msg="EFS is not mounted on instance : $instance_id .Launching new spot and this will be deleted."
 	json="{\"text\": \"$msg\"}"
-	curl -s -d "payload=$json" "https://hooks.slack.com/services/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"
+	curl -s -d "payload=$json" "https://hooks.slack.com/services/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"
 	echo "Something went wrong with mount sending slack msg"
 	expcode="M-TRANSFORMER-BERT-FUSE"
 	action="start"
