@@ -61,7 +61,7 @@ else
 			a=`sed -n "/Training/p" listfile`
 			echo $a | cut -d "[" -f2 | cut -d "]" -f1 > listfile2
 		#	echo `pwd`
-			if [ -s listfile2 ]
+			if [ ! -s listfile2 ]
 			then
 			echo "empty file no response"
 			touch stopped-exp
