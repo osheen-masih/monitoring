@@ -1,0 +1,11 @@
+a=`sed -n "/Training/p" listfile`
+echo $a | cut -d "[" -f2 | cut -d "]" -f1 > listfile
+tr -s ', ' '\n' < listfile > running-exp
+while read r; do grep $r /mnt/efs/training-records.txt; done < running-exp > sample
+awk 'NR==FNR{a[$0]=1;next}!a[$0]' sample /mnt/efs/training-records.txt > sample2
+while read r; do echo $r|grep -Po 'ExpNo="\K[^"]*'>> stopped-exp; done < sample2
+sed -i 's/^/"/;s/$/"/' stopped-exp
+sed -e 's/$/    "Stopped"/' -i stopped-exp
+sed -e 's/$/    "Running"/' -i running-exp
+cat stopped-exp >> running-exp
+

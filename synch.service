@@ -1,0 +1,12 @@
+[Unit]
+Description=Home data synch Service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=bash /var/rsynch.sh
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target
+
